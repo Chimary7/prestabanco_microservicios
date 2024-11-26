@@ -27,8 +27,8 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/rut")
-    public ResponseEntity<Users> getUserByRut(@RequestParam String rut){
+    @GetMapping("/{rut}")
+    public ResponseEntity<Users> getUserByRut(@PathVariable String rut){
         Users User = userService.getUserByRut(rut);
         return ResponseEntity.ok(User);
     }

@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Users {
@@ -21,10 +21,9 @@ public class Users {
     private String rut;
     private String name;
     private String lastname;
-    @Column(nullable = false)
-    private int ingreso = 0;
+
+    private int ingreso ;
     private Date birthdate;
 
-    @Column(nullable = false)
     private Boolean register = false;
 }
