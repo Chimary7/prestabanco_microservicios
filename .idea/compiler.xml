@@ -9,6 +9,7 @@
         <module name="eureka-service" />
         <module name="config-service" />
         <module name="creditService" />
+        <module name="gateway-service" />
         <module name="SimulatorService" />
         <module name="CalculateService" />
         <module name="pdfFileService" />
@@ -29,6 +30,7 @@
       <module name="config-service" options="-parameters" />
       <module name="creditService" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="pdfFileService" options="-parameters" />
       <module name="userService" options="-parameters" />
     </option>
