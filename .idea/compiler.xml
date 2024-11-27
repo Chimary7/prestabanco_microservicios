@@ -6,13 +6,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eureka-service" />
+        <module name="config-service" />
         <module name="creditService" />
+        <module name="SimulatorService" />
+        <module name="CalculateService" />
+        <module name="pdfFileService" />
+        <module name="userService" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="EvaluationService" target="17" />
+      <module name="LoantypeService" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CalculateService" options="-parameters" />
+      <module name="EvaluationService" options="-parameters" />
+      <module name="LoantypeService" options="-parameters" />
+      <module name="SimulatorService" options="-parameters" />
+      <module name="config-service" options="-parameters" />
       <module name="creditService" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
+      <module name="pdfFileService" options="-parameters" />
+      <module name="userService" options="-parameters" />
     </option>
   </component>
 </project>

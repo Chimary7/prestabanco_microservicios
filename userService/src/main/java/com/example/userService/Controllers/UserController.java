@@ -21,7 +21,7 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Users>> ListUsers(){
         ArrayList<Users> users = userService.getAllUserRegister();
         return ResponseEntity.ok(users);
@@ -33,7 +33,7 @@ public class UserController {
         return ResponseEntity.ok(User);
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Users> SaveUser(@RequestBody Users user){
         Users newUser = userService.updateUser(user);
         return ResponseEntity.ok(newUser);

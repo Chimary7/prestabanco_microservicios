@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/credit")
 public class CreditController {
     @Autowired
     private CreditService creditservice;

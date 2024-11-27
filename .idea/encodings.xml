@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/CalculateService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SimulatorService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/creditService/creditService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/creditService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pdfFileService/LoantypeService/EvaluationService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pdfFileService/LoantypeService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pdfFileService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/userService/src/main/java" charset="UTF-8" />
   </component>
 </project>

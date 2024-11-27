@@ -14,7 +14,7 @@ public class SimulatorController {
     @Autowired
     SimulatorService simulatorService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<Integer> CalculateSimulator(@RequestParam Double CapitalMonth,
                                                       @RequestParam Double annualInterest,
                                                       @RequestParam Integer years) {

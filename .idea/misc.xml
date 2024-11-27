@@ -5,6 +5,15 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/creditService/creditService/pom.xml" />
+        <option value="$PROJECT_DIR$/config-service/pom.xml" />
+        <option value="$PROJECT_DIR$/creditService/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-service/pom.xml" />
+        <option value="$PROJECT_DIR$/EvaluationService/pom.xml" />
+        <option value="$PROJECT_DIR$/LoantypeService/pom.xml" />
+        <option value="$PROJECT_DIR$/pdfFileService/pom.xml" />
+        <option value="$PROJECT_DIR$/SimulatorService/pom.xml" />
+        <option value="$PROJECT_DIR$/userService/pom.xml" />
+        <option value="$PROJECT_DIR$/CalculateService/pom.xml" />
       </list>
     </option>
   </component>
