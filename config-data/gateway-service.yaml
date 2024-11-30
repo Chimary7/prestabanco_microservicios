@@ -29,10 +29,10 @@ spring:
           uri: lb://evaluationService
           predicates:
             - Path=/api/evaluation/**
-        - id: LoanTypeService
-          uri: lb://LoanTypeService
+        - id: LoantypeService
+          uri: lb://LoantypeService
           predicates:
-            - Path=/loantype/**
+            - Path=/api/loantype/**
         - id: pdfFileService
           uri: lb://pdfFileService
           predicates:
@@ -45,3 +45,7 @@ spring:
           uri: lb://userService
           predicates:
             - Path=/user/**
+        - id: creditMonitoringService
+          uri: lb://creditMonitoringService
+          predicates:
+            - Path=/creditMonitoring/**

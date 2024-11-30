@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: creditMonitoringService
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+    datasource:
+        url: jdbc:postgresql://localhost:5432/microprestabancomonitoring
+        username: postgres
+        password: Vd8901
+    jpa:
+        hibernate:
+            ddl-auto: update

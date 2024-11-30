@@ -10,7 +10,9 @@
         <module name="config-service" />
         <module name="creditService" />
         <module name="gateway-service" />
+        <module name="LoanTypeService" />
         <module name="SimulatorService" />
+        <module name="creditMonitoringService" />
         <module name="CalculateService" />
         <module name="pdfFileService" />
         <module name="userService" />
@@ -25,9 +27,11 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CalculateService" options="-parameters" />
       <module name="EvaluationService" options="-parameters" />
+      <module name="LoanTypeService" options="-parameters" />
       <module name="LoantypeService" options="-parameters" />
       <module name="SimulatorService" options="-parameters" />
       <module name="config-service" options="-parameters" />
+      <module name="creditMonitoringService" options="-parameters" />
       <module name="creditService" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
