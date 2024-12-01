@@ -46,7 +46,7 @@ public class CreditService {
         if (rutClient == null){
             throw new IllegalArgumentException("por favor ingrese un rut");
         }
-        Users user = restTemplate.getForObject("http://localhost:8001/user/" + rutClient, Users.class);
+        Users user = restTemplate.getForObject("http://localhost:8080/user/" + rutClient, Users.class);
         if (user == null){
             throw new IllegalArgumentException("el usuario no esta registrado");
         }
@@ -84,7 +84,7 @@ public class CreditService {
             }
         }
 
-        Users user = restTemplate.getForObject("http://localhost:8001/user/" + credit.getRutClient(), Users.class);
+        Users user = restTemplate.getForObject("http://localhost:8080/user/" + credit.getRutClient(), Users.class);
 
         if (user == null){
             throw new IllegalArgumentException("No esta registrado este rut de usuario, por favor registrese primero antes de solicitar un prestamo");
@@ -103,7 +103,7 @@ public class CreditService {
             throw new IllegalArgumentException("Por favor ingrese el RUT");
         }
 
-        Users user = restTemplate.getForObject("http://localhost:8001/user/" + credit.getRutClient(), Users.class);
+        Users user = restTemplate.getForObject("http://localhost:8080/user/" + credit.getRutClient(), Users.class);
 
         if (user == null){
             throw new IllegalArgumentException("No esta registrado este rut de usuario, por favor registrese primero antes de solicitar un prestamo");
