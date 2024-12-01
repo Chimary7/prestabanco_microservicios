@@ -34,12 +34,12 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Users> SaveUser(@RequestBody Users user){
+    public ResponseEntity<?> SaveUser(@RequestBody Users user){
         try {
             Users newUser = userService.saveUser(user);
             return ResponseEntity.ok(newUser);
-        } catch (Exception e){
-            return ResponseEntity.badRequest().build();
+        } catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
