@@ -31,7 +31,16 @@ public class UserService {
     }
 
     public Users getUserByRut(String rut){
-        return userRepository.findByRut(rut);
+        if (rut == null){
+            throw new IllegalArgumentException("Por favor ingrese un RUT");
+        }
+
+        Users user = userRepository.findByRut(rut);
+        if(user != null && user.getRegister() != false){
+            return user;
+        } else {
+            throw new IllegalArgumentException("El usuario no existe o no esta confirmado su registro");
+        }
     }
 
     public Users saveUser(Users user){
