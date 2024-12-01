@@ -33,7 +33,7 @@ public class LoanTypeService {
             throw new IllegalArgumentException("por favor ingrese los requerimientos necesarios");
         }
 
-        if (loanType.getMaxTime() <= 0){
+        if (loanType.getMaxTime() <= 0 || loanType.getMaxTime() == null){
             throw new IllegalArgumentException("por favor ingrese el año de duracion del prestamo");
         }
 

@@ -33,7 +33,7 @@ public class CreditService {
             throw new IllegalArgumentException("por favor ingrese un rut");
         }
 
-        Users user = restTemplate.getForObject("http://localhost:8001/user/" + rutClient, Users.class);
+        Users user = restTemplate.getForObject("http://localhost:8080/user/" + rutClient, Users.class);
 
         if (user == null){
             throw new IllegalArgumentException("el usuario no esta registrado");
