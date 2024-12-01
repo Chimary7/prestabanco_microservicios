@@ -28,19 +28,19 @@ public class UserController {
     }
 
     @GetMapping("/{rut}")
-    public ResponseEntity<Users> getUserByRut(@PathVariable String rut){
-        Users User = userService.getUserByRut(rut);
-        return ResponseEntity.ok(User);
+    public ResponseEntity<?> getUserByRut(@PathVariable String rut){
+        try {
+            Users user = userService.getUserByRut(rut);
+            return ResponseEntity.ok(user);
+        } catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping("/")
     public ResponseEntity<?> SaveUser(@RequestBody Users user){
-        try {
-            Users newUser = userService.saveUser(user);
-            return ResponseEntity.ok(newUser);
-        } catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+        Users newUser = userService.saveUser(user);
+        return ResponseEntity.ok(newUser);
     }
 
     @PutMapping("/")
