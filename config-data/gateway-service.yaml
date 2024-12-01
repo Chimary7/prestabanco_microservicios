@@ -32,7 +32,7 @@ spring:
         - id: LoantypeService
           uri: lb://LoantypeService
           predicates:
-            - Path=/api/loantype/**
+            - Path=/api/loanType/**
         - id: pdfFileService
           uri: lb://pdfFileService
           predicates:

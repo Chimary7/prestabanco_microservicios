@@ -39,12 +39,16 @@ public class UserController {
 
     @PostMapping("/")
     public ResponseEntity<?> SaveUser(@RequestBody Users user){
-        Users newUser = userService.saveUser(user);
-        return ResponseEntity.ok(newUser);
+        try {
+            Users newUser = userService.saveUser(user);
+            return ResponseEntity.ok(newUser);
+        } catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PutMapping("/")
-    public ResponseEntity<Users> UpdateUser (@RequestBody Users user){
+    public ResponseEntity<Users> UpdateUser(@RequestBody Users user){
         Users newUser = userService.updateUser(user);
         return ResponseEntity.ok(newUser);
     }

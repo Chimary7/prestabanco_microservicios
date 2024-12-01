@@ -3,6 +3,8 @@ package com.example.creditMonitoringService.Service;
 import com.example.creditMonitoringService.Modal.Users;
 import com.example.creditMonitoringService.Modal.credit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,6 +26,6 @@ public class creditService {
             throw new IllegalArgumentException("Su registro aun no ha sido confirmado, por favor intente de nuevo mas tarde");
         }
 
-        return restTemplate.putForObject("http://localhost:8002/credit/", upcredit, credit.class);
+        return restTemplate.exchange("http://localhost:8002/credit/", HttpMethod.PUT, new HttpEntity<>(upcredit), credit.class).getBody();
     }
 }
