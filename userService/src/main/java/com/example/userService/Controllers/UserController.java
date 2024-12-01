@@ -35,6 +35,16 @@ public class UserController {
 
     @PostMapping("/")
     public ResponseEntity<Users> SaveUser(@RequestBody Users user){
+        try {
+            Users newUser = userService.saveUser(user);
+            return ResponseEntity.ok(newUser);
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PutMapping("/")
+    public ResponseEntity<Users> UpdateUser (@RequestBody Users user){
         Users newUser = userService.updateUser(user);
         return ResponseEntity.ok(newUser);
     }
