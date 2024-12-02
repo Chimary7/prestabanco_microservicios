@@ -36,10 +36,10 @@ public class UserService {
         }
 
         Users user = userRepository.findByRut(rut);
-        if(user != null && user.getRegister() != false){
+        if(user != null){
             return user;
         } else {
-            throw new IllegalArgumentException("El usuario no existe o no esta confirmado su registro");
+            throw new IllegalArgumentException("El usuario no existe");
         }
     }
 
