@@ -15,19 +15,4 @@ public class ConfigServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ConfigServiceApplication.class, args);
 	}
-
-	@Bean
-	public CorsWebFilter corsWebFilter() {
-		CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.addAllowedOrigin("http://localhost:5173");
-		corsConfig.addAllowedMethod("GET");
-		corsConfig.addAllowedMethod("POST");
-		corsConfig.addAllowedHeader("*");
-		corsConfig.setAllowCredentials(true);
-
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", corsConfig);
-
-		return new CorsWebFilter(source);
-	}
 }
