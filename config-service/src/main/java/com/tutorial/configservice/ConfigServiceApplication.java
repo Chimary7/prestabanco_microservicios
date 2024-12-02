@@ -19,8 +19,9 @@ public class ConfigServiceApplication {
 	@Bean
 	public CorsWebFilter corsWebFilter() {
 		CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.addAllowedOrigin("");
-		corsConfig.addAllowedMethod("");
+		corsConfig.addAllowedOrigin("http://localhost:5173");
+		corsConfig.addAllowedMethod("GET");
+		corsConfig.addAllowedMethod("POST");
 		corsConfig.addAllowedHeader("*");
 		corsConfig.setAllowCredentials(true);
 
