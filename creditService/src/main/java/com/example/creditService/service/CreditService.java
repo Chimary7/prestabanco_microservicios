@@ -1,6 +1,7 @@
 package com.example.creditService.service;
 
 import com.example.creditService.entity.credit;
+import com.example.creditService.model.LoanType;
 import com.example.creditService.model.Users;
 import com.example.creditService.repository.creditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,15 +73,13 @@ public class CreditService {
             throw new IllegalArgumentException("por favor seleccione un tipo de credito");
         }
 
-        if (credit.getIdLoanType() == 1 || credit.getIdLoanType() == 2) {
-            creditOptional = creditrepository.findByRutClientAndIdLoanType(credit.getRutClient(), 1);
+        LoanType loanType = restTemplate.getForObject("http://localhost:8080/api/loanType/" + credit.getIdLoanType(), LoanType.class);
+
+        if (loanType.getNameLoan().equals("Primera vivienda") || loanType.getNameLoan().equals("Segunda vivienda")) {
+
+            creditOptional = creditrepository.findByRutClientAndIdLoanType(credit.getRutClient(), credit.getIdLoanType());
             if (creditOptional.isPresent() && creditOptional.get().getCreditStatus() == APROBADA) {
                 throw new IllegalArgumentException("No puede pedir el presente prestamo ya que solo se puede pedir una vez");
-            } else {
-                creditOptional = creditrepository.findByRutClientAndIdLoanType(credit.getRutClient(), 2);
-                if (creditOptional.isPresent() && creditOptional.get().getCreditStatus() == APROBADA) {
-                    throw new IllegalArgumentException("No puede pedir el presente prestamo ya que solo se puede pedir una vez");
-                }
             }
         }
 
@@ -91,8 +90,6 @@ public class CreditService {
         } else if (!user.getRegister()) {
             throw new IllegalArgumentException("Su registro aun no ha sido confirmado, por favor intente de nuevo mas tarde");
         }
-
-
 
         return creditrepository.save(credit);
     }
