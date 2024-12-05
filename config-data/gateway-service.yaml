@@ -47,7 +47,7 @@ spring:
         - id: SimulatorService
           uri: lb://SimulatorService
           predicates:
-            - Path=/api/simulator/**
+            - Path=/api/calculate/**
         - id: userService
           uri: lb://userService
           predicates:

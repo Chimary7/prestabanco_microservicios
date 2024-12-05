@@ -73,7 +73,7 @@ public class CreditService {
             throw new IllegalArgumentException("por favor seleccione un tipo de credito");
         }
 
-        LoanType loanType = restTemplate.getForObject("http://localhost:8080/api/loanType/" + credit.getIdLoanType(), LoanType.class);
+        LoanType loanType = restTemplate.getForObject("http://localhost:8080/api/loanType/loan?id=" + credit.getIdLoanType(), LoanType.class);
 
         if (loanType.getNameLoan().equals("Primera vivienda") || loanType.getNameLoan().equals("Segunda vivienda")) {
 

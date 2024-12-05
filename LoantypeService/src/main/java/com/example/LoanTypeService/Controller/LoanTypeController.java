@@ -22,6 +22,7 @@ public class LoanTypeController {
 
     @GetMapping("/loan")
     public ResponseEntity<Loantype> GetLoanTypeById(@RequestParam long id){
+        System.out.println("id: " + id);
         Loantype loanType = loanTypeService.getLoanTypeById(id);
         return ResponseEntity.ok(loanType);
     }
