@@ -33,6 +33,7 @@ public class pdfFileController {
     @GetMapping("/pdfcategorycredit")
     public ResponseEntity<byte[]> getPdfFileCreditCategory(@RequestParam String Category, @RequestParam Long idCredit){
         pdfFile pdffile = pdfFileservice.getPdfFileByCategoryAndCredit(Category,idCredit);
+        System.out.println(pdffile);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         headers.add("Content-Disposition","attachment; filename=" + pdffile.getName());

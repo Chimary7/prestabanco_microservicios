@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/api/calculate")
+@RequestMapping("/api/simulator")
 public class SimulatorController {
     @Autowired
     SimulatorService simulatorService;
 
-    @GetMapping("/simulator")
+    @GetMapping("/")
     public ResponseEntity<Integer> CalculateSimulator(@RequestParam Double CapitalMonth,
                                                       @RequestParam Double annualInterest,
                                                       @RequestParam Integer years) {
