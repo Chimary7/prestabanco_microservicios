@@ -13,12 +13,12 @@
         <module name="LoanTypeService" />
         <module name="SimulatorService" />
         <module name="creditMonitoringService" />
-        <module name="CalculateService" />
         <module name="pdfFileService" />
         <module name="userService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CalculateService" target="17" />
       <module name="EvaluationService" target="17" />
       <module name="LoantypeService" target="17" />
     </bytecodeTargetLevel>

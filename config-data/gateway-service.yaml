@@ -24,10 +24,6 @@ spring:
             allowed-headers: "*"
             allow-credentials: true
       routes:
-        - id: CalculateService
-          uri: lb://CalculateService
-          predicates:
-            - Path=/api/calculate/**
         - id: creditService
           uri: lb://creditService
           predicates:
