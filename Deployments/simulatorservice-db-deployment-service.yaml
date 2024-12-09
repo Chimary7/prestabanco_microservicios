@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: simulatorservice-db-pv
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/simulatorservice-db-data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: simulatorservice-db-pvc
+  labels:
+    app: postgres
+    tier: database
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simulatorservice-db-deployment
+  labels:
+    app: simulatorservice-db-deployment
+    tier: database
+spec:
+  selector:
+    matchLabels:
+      app: simulatorservice-db-deployment
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: simulatorservice-db-deployment
+        tier: database
+    spec:
+      containers:
+        - name: simulatorservice-db
+          image: postgres
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: DB_PASSWORD
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: simulatorservice-db-data
+      volumes:
+        - name: simulatorservice-db-data
+          persistentVolumeClaim:
+            claimName: simulatorservice-db-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simulatorservice-db-service
+  labels:
+    app: simulatorservice-db-service
+    tier: database
+spec:
+  ports:
+    - port: 5433
+      targetPort: 5432
+      protocol: TCP
+  selector:
+    app: simulatorservice-db-deployment
+    tier: database
+  type: LoadBalancer

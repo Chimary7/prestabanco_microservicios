@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: creditmonitoringservice-db-pv
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/creditmonitoringservice-db-data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: creditmonitoringservice-db-pvc
+  labels:
+    app: postgres
+    tier: database
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: creditmonitoringservice-db-deployment
+  labels:
+    app: creditmonitoringservice-db-deployment
+    tier: database
+spec:
+  selector:
+    matchLabels:
+      app: creditmonitoringservice-db-deployment
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: creditmonitoringservice-db-deployment
+        tier: database
+    spec:
+      containers:
+        - name: creditmonitoringservice-db
+          image: postgres
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: DB_PASSWORD
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: creditmonitoringservice-db-data
+      volumes:
+        - name: creditmonitoringservice-db-data
+          persistentVolumeClaim:
+            claimName: creditmonitoringservice-db-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: creditmonitoringservice-db-service
+  labels:
+    app: creditmonitoringservice-db-service
+    tier: database
+spec:
+  ports:
+    - port: 5437
+      targetPort: 5432
+      protocol: TCP
+  selector:
+    app: creditmonitoringservice-db-deployment
+    tier: database
+  type: LoadBalancer

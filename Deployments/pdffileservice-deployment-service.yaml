@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdffileservice-deployment
+  labels:
+    app: pdffileservice-deployment
+spec:
+  selector:
+    matchLabels:
+      app: pdffileservice-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pdffileservice-deployment
+    spec:
+      containers:
+        - name: pdffileservice-service
+          image: chimary/pdffileservice
+          ports:
+            - containerPort: 8092

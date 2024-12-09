@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loantypeservice-deployment
+  labels:
+    app: loantypeservice-deployment
+spec:
+  selector:
+    matchLabels:
+      app: loantypeservice-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loantypeservice-deployment
+    spec:
+      containers:
+        - name: loantypeservice-service
+          image: chimary/loantypeservice
+          ports:
+            - containerPort: 8093

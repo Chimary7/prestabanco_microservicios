@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simulatorservice-deployment
+  labels:
+    app: simulatorservice-deployment
+spec:
+  selector:
+    matchLabels:
+      app: simulatorservice-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: simulatorservice-deployment
+    spec:
+      containers:
+        - name: simulatorservice-service
+          image: chimary/simulatorservice
+          ports:
+            - containerPort: 8091
