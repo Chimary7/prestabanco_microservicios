@@ -49,7 +49,7 @@ public class CreditController {
     public ResponseEntity<credit> saveCredit(@RequestBody credit creditNew){
         System.out.println("credito entregado: " +creditNew);
         credit credit1 = creditservice.saveCredit(creditNew);
-        return ResponseEntity.ok(creditNew);
+        return ResponseEntity.ok(credit1);
     }
 
     @PutMapping("/")

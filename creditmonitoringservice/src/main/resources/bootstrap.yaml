@@ -10,7 +10,7 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8081
+      uri: http://config-service-service:8081
     datasource:
         url: jdbc:postgresql://${POSTGREST_DB_HOST}:5432/${POSTGRES_DB_MONITORING}
         username: postgres

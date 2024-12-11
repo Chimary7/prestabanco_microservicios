@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: creditmonitoringservice-service
-          image: chimary/creditmonitoringservice
+          image: chimary/creditmonitoringservice:latest
           ports:
             - containerPort: 8095
           env:

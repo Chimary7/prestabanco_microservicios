@@ -1,4 +1,4 @@
-package com.example.creditService.Config;
+package com.example.creditMonitoringService.Config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
