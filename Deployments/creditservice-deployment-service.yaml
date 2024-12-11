@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: creditservice-service
-          image: chimary/creditservice
+          image: chimary/creditservice:latest
           ports:
             - containerPort: 8094
           env:
