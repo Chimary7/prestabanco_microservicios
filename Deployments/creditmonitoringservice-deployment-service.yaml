@@ -25,8 +25,8 @@ spec:
                 configMapKeyRef:
                   name: postgres-config-map
                   key: POSTGRES_DB_HOST
-            - name: POSTGRES_DB_CREDITMONITORING
+            - name: POSTGRES_DB_MONITORING
               valueFrom:
                 configMapKeyRef:
                   name: postgres-config-map
-                  key: POSTGRES_DB_CREDITMONITORING
+                  key: POSTGRES_DB_MONITORING
