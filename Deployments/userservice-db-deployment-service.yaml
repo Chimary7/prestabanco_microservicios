@@ -63,7 +63,7 @@ spec:
             - mountPath: /var/lib/postgresql/data
               name: userservice-db-data
       volumes:
-        - name: userService-db-data
+        - name: userservice-db-data
           persistentVolumeClaim:
             claimName: userservice-db-pvc
 ---
