@@ -16,9 +16,12 @@ spec:
     spec:
       containers:
         - name: eureka-service
-          image: chimary/eurekaservice
+          image: chimary/eurekaservice:latest
           ports:
             - containerPort: 8761
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://config-service:8081
 ---
 apiVersion: v1
 kind: Service
