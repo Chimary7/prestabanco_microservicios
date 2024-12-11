@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pdffileservice-service
-          image: chimary/pdffileservice
+          image: chimary/pdffileservice:latest
           ports:
             - containerPort: 8092
           env:
