@@ -7,16 +7,5 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-spring:
-  datasource:
-    url: jdbc:postgresql://loantypeservice-db-service:5435/loantypeservice-db
-    username: postgres
-    password: Vd8901
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+    instance-id: ${spring.application.name}:${server.port}
+    hostname: LoanTypeService

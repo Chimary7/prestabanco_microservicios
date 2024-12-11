@@ -19,3 +19,14 @@ spec:
           image: chimary/loantypeservice
           ports:
             - containerPort: 8093
+          env:
+            - name: POSTGRES_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: POSTGRES_DB_HOST
+            - name: POSTGRES_DB_LOAN
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: POSTGRES_DB_LOAN
