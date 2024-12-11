@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: gateway-service
-          image: chimary/gateway-service
+          image: chimary/gateway-service:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
 ---
 apiVersion: v1
 kind: Service
