@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: loantypeservice-service
-          image: chimary/loantypeservice
+          image: chimary/loantypeservice:latest
           ports:
             - containerPort: 8093
           env:
