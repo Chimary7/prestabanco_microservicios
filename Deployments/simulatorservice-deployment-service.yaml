@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: simulatorservice-service
-          image: chimary/simulatorservice
+          image: chimary/simulatorservice:latest
           ports:
             - containerPort: 8091
           env:
