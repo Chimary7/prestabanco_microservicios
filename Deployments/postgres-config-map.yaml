@@ -7,6 +7,8 @@ metadata:
 data:
   POSTGRES_DB_HOST: postgres
   POSTGRES_DB_USER: dbuser
-  POSTGRES_DB_FINANCIAL_EVALUATION: dbfinancialevaluation
   POSTGRES_DB_CREDIT: dbcredit
+  POSTGRES_DB_LOAN: dbloan
+  POSTGRES_DB_SIMULATOR: dbsimulator
   POSTGRES_DB_DOCUMENT: dbdocument
+  POSTGRES_DB_MONITORING: dbcreditmonitoring
